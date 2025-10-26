@@ -1,0 +1,1031 @@
+* {
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+}
+
+body {
+     background-color: black;
+     font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 20px 20px;
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+header img {
+     width: 100px;
+     height: 75px;
+}
+ 
+
+header .judul1 {
+    font-size: 24px;
+    margin-left: 20px; 
+    color: black;
+}
+
+/* Style navbar saat scroll */
+header.scrolled {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.4s ease-in-out;
+  z-index: 999;
+}
+
+
+
+/* Nav bar */
+
+.Menu {
+    margin-left: auto;
+}
+
+
+.Menu ul {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.Menu  li a{
+     text-decoration: none;
+     color: black;
+     font-size: 16px;
+     font-weight: bold;
+     padding: 20px;
+}
+
+.Menu li a:hover {
+     color: rgb(231, 231, 231);
+     padding: 20px;
+     border-radius: 20vh;
+     background-color: aqua;
+     transform: scale (1.2);
+}
+
+
+
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(-15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.Menu li {
+  animation: fadeSlide 0.6s ease forwards;
+}
+
+
+/* Delay tiap item biar efek cascade */
+.Menu li:nth-child(1) { animation-delay: 0.1s; }
+.Menu li:nth-child(2) { animation-delay: 0.2s; }
+.Menu li:nth-child(3) { animation-delay: 0.3s; }
+.Menu li:nth-child(4) { animation-delay: 0.4s; }
+
+/* Animasi Muncul Smooth */
+@keyframes fadeSlideGlobal {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Terapkan ke semua elemen utama */
+body > * {
+  opacity: 0;
+  animation: fadeSlideGlobal 0.8s ease forwards;
+}
+
+/* Delay biar gak numpuk */
+header {
+  animation-delay: 0.1s;
+}
+
+.Menu li {
+  animation: fadeSlideGlobal 0.8s ease forwards;
+}
+
+/* Delay cascade navbar */
+.Menu li:nth-child(1) { animation-delay: 0.3s; }
+.Menu li:nth-child(2) { animation-delay: 0.4s; }
+.Menu li:nth-child(3) { animation-delay: 0.5s; }
+.Menu li:nth-child(4) { animation-delay: 0.6s; }
+
+
+/* Beranda */
+.Menu-Beranda {
+     padding: 20px 60px; /* Bikin teks masuk sedikit dari kiri */
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: flex-start;
+     background-image: url(gambar/best-dota-2-heroes-lich-loading.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 650px;
+     opacity: 10;
+}
+
+.Menu-Beranda h2 {
+     margin-top: 250px; /* Turunin posisi teks */
+     font-size: 48px;
+     text-align: left;
+     color: white;
+     font-weight: bold;
+}
+
+.Menu-Beranda p {
+      margin-top: 12px;
+      font-size: 20px;
+      color: white;
+      max-width: 500px;
+}
+
+/* Gelapin bagian background */
+.Menu-Beranda {
+     position: relative; /* wajib biar overlay bisa nempel */
+     overflow: hidden;
+}
+
+.Menu-Beranda::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5); /* Sesuaikan tingkat kegelapan */
+     z-index: 1; /* overlay di atas background */
+}
+
+.Menu-Beranda h2,
+.Menu-Beranda p {
+     position: relative;
+     z-index: 2; /* teks di atas overlay */
+}
+
+.Hubungi {
+  padding: 12px 25px;
+  background-color: rgb(0, 255, 229);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 255, 229, 0.4);
+}
+
+.Hubungi:hover {
+  background-color: #ffffff;
+  color: rgb(0, 255, 229);
+  border: 2px solid rgb(0, 255, 229);
+  transform: translateY(-3px);
+}
+
+
+
+/* Animasi teks slide dari kiri */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.Menu-Beranda h2,
+.Menu-Beranda p {
+    opacity: 0;
+    animation: slideInLeft 1.2s ease forwards;
+}
+
+/* Delay supaya p muncul setelah h2 */
+.Menu-Beranda p {
+    animation-delay: 0.3s;
+}
+
+
+/*  Tentang */
+
+.Menu-tentang {
+     margin-top: 150px;
+     padding: 20px;
+}
+
+.Menu-tentang h2 {
+      text-align: center;
+       color: rgb(0, 255, 229);
+      font-size: 24px;
+      margin-bottom: 30px;
+}
+
+.Menu-tentang img   {
+     width: 350px;
+     margin-left: 150px;
+      box-shadow: 0 5px 20px rgba(0, 255, 229, 0.3);
+     height: 200px;
+     border-radius: 12px;
+}
+
+.Menu-tentang .container {
+     display: flex;
+     align-items: center;
+     flex-direction: row;
+     gap:20px ;
+}
+
+.Menu-tentang p {
+     color: white;
+     max-width: 500px;
+     font-size: 18px;
+     line-height: 1.6;
+     text-align: left;
+}
+
+.submit {
+  padding: 12px 25px;
+  background-color: rgb(0, 255, 229);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 255, 229, 0.4);
+}
+
+.submit:hover {
+  background-color: #ffffff;
+  color: rgb(0, 255, 229);
+  border: 2px solid rgb(0, 255, 229);
+  transform: translateY(-3px);
+}
+.Owner {
+  margin-top: 150px;
+  padding: 0 40px;
+  background: rgb(15, 15, 15);
+}
+
+.Hero-tentang {   
+  display: flex;
+  flex-direction: row; /* Gambar kanan, teks kiri */
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.Hero-tentang img {
+  width: 450px;
+  height: 350px;
+  border-radius: 20px;
+  object-fit: cover;
+  flex-shrink: 0; /* Biar gambar tidak mengecil */
+  box-shadow: 0 5px 20px rgba(0, 255, 229, 0.3); /* efek glow keren */
+}
+
+.Hero-tentang p,
+.Hero-tentang ul {
+  color: white;
+  max-width: 550px;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/* Styling bullet list */
+.Hero-tentang ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.Hero-tentang li {
+  margin-bottom: 12px;
+}
+
+/* Bagian responsif untuk HP & tablet */
+@media (max-width: 768px) {
+  .Hero-tentang {
+    flex-direction: column; /* jadi atas-bawah */
+    text-align: center;
+  }
+
+  .Hero-tentang img {
+    width: 95%;
+    height: auto;
+  }
+
+  .Hero-tentang ul {
+    text-align: left; /* bullet tetap rapi */
+    margin: auto;
+  }
+}
+
+/* Keyframes untuk animasi */
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Terapkan ke gambar (masuk dari kanan) */
+.Hero-tentang img {
+  animation: slideRight 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Terapkan ke paragraf dan bullet (masuk dari kiri) */
+.Hero-tentang p,
+.Hero-tentang ul {
+  animation: slideLeft 1.2s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s; /* muncul sedikit belakangan */
+}
+
+/* Bullet list muncul satu per satu */
+.Hero-tentang li {
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+}
+
+/* Delay setiap bullet list biar cascade */
+.Hero-tentang li:nth-child(1) { animation-delay: 0.4s; }
+.Hero-tentang li:nth-child(2) { animation-delay: 0.6s; }
+.Hero-tentang li:nth-child(3) { animation-delay: 0.8s; }
+
+
+
+.cara-dota {
+  margin-top: 150px;
+  padding: 100px 50px;
+  text-align: center;
+  color: white;
+}
+
+.cara-dota h2 {
+  font-size: 35px;
+  color: rgb(0, 255, 229);
+  margin-bottom: 40px;
+}
+
+/* Flex Layout */
+.content-cara {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Gambar */
+.content-cara img {
+  width: 450px;
+  height: 300px;
+  border-radius: 18px;
+  object-fit: cover;
+  animation: slideRight 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Kotak teks */
+.text-box {
+  max-width: 500px;
+  text-align: left;
+  opacity: 0;
+  animation: slideLeft 1.2s ease forwards;
+}
+
+/* List styling */
+.text-box ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.text-box li {
+  margin-bottom: 8px;
+}
+
+/* Button Styling */
+.btn-main {
+  padding: 12px 25px;
+  background-color: rgb(0, 255, 229);
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: .3s ease;
+  box-shadow: 0 4px 12px rgba(0,255,229,0.5);
+}
+
+.btn-main:hover {
+  background: white;
+  color: rgb(0, 255, 229);
+  transform: translateY(-4px);
+}
+
+/* Animasi */
+@keyframes slideLeft {
+  0% { opacity: 0; transform: translateX(-60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  0% { opacity: 0; transform: translateX(60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content-cara {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-box {
+    text-align: center;
+  }
+}
+
+/* Animasi masuk kiri untuk gambar */
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animasi masuk kanan untuk text */
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Terapkan ke gambar */
+.content-cara img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  animation: slideLeft 1s ease forwards;
+  transition: 0.4s;
+}
+
+/* Hover interaktif gambar */
+.content-cara img:hover {
+  transform: translateY(-8px) scale(1.08) rotate(-2deg);
+}
+
+/* Terapkan ke text */
+.text-box {
+  max-width: 480px;
+  text-align: left;
+  color: white;
+  animation: slideRight 1s ease forwards;
+}
+
+/* Optional: Tombol shake dikit saat hover */
+.btn-main:hover {
+  background-color: #ff2222;
+  box-shadow: 0 0 15px #e70000;
+  animation: shake 0.4s linear;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.hero-list {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-list h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #00ffee;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  justify-content: center;
+}
+
+.hero-card {
+  background-color: rgba(255,255,255,0.08);
+  padding: 15px;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  transition: 0.4s;
+}
+
+.hero-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 15px #00ffee;
+}
+
+.hero-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.hero-card h3 {
+  margin: 10px 0;
+}
+
+.hero-card button {
+  padding: 8px 15px;
+  background-color: #00ffee;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.hero-card button:hover {
+  background-color: #ffffff;
+  color: #00ffee;
+}
+  
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dota-permainan {
+  margin-top: 150px;
+  padding: 20px;
+  text-align: center;
+}
+
+.dota-permainan h2 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 25px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.dota-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  animation: slideUp 1.2s ease forwards;
+}
+
+.dota-box img {
+  width: 420px;
+  height: 300px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0,255,229,0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+.text-permainan {
+  max-width: 500px;
+  text-align: left;
+}
+
+.text-permainan p,
+.text-permainan li {
+  color: white;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.text-permainan ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.btn-main {
+  padding: 12px 25px;
+  background-color: rgb(0, 255, 229);
+  color: black;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-top: 15px;
+  transition: 0.3s ease;
+}
+
+.btn-main:hover {
+  background-color: white;
+  color: rgb(0, 200, 200);
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(0, 255, 229, 0.7);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .text-permainan {
+    text-align: center;
+  }
+
+  .text-permainan ul {
+    padding-left: 0;
+  }
+}
+
+:root{
+  --bg: #050507;
+  --card: rgba(255,255,255,0.04);
+  --accent: #00ffee;
+  --text: #e6eef0;
+}
+
+.testi-dota{
+     margin-top: 150px;
+  background: linear-gradient(180deg, rgba(3,3,6,0.9), rgba(8,8,12,0.95));
+  color: var(--text);
+  padding: 70px 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.testi-dota h2{
+  color: var(--accent);
+  font-size: 32px;
+  margin-bottom: 28px;
+  letter-spacing: 0.6px;
+  text-shadow: 0 6px 24px rgba(0,255,238,0.04);
+  animation: titleIn 0.8s ease both;
+}
+
+/* Grid */
+.testi-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Card */
+.testi-card{
+  
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  transform: translateY(18px);
+  opacity: 0;
+  animation: cardIn 0.7s forwards;
+}
+
+.testi-card:nth-child(1){ animation-delay: 0.12s; }
+.testi-card:nth-child(2){ animation-delay: 0.24s; }
+.testi-card:nth-child(3){ animation-delay: 0.36s; }
+.testi-card:nth-child(4){ animation-delay: 0.48s; }
+
+.testi-avatar{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(0,255,238,0.08);
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* body text */
+.testi-body{
+  text-align: left;
+}
+
+.testi-quote{
+  margin: 0 0 8px 0;
+  color: #dfeff0;
+  line-height: 1.45;
+  font-size: 15px;
+}
+
+/* name */
+.testi-name{
+  display: block;
+  color: rgba(255,255,255,0.65);
+  font-size: 13px;
+}
+
+/* Like button (visual) */
+.like{
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--accent);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s;
+  backdrop-filter: blur(6px);
+}
+
+.like:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,255,238,0.06);
+  background: rgba(0,255,238,0.02);
+}
+
+/* small screens */
+@media (max-width: 1024px){
+  .testi-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px){
+  .testi-grid{ grid-template-columns: 1fr; padding: 0 12px; }
+  .testi-card{ text-align: center; flex-direction: column; gap: 10px; padding-bottom: 48px; }
+  .testi-avatar{ margin: 0 auto; }
+  .testi-body{ text-align: center; }
+  .testi-name{ margin-top: 6px; }
+  .like{ right: 50%; transform: translateX(50%); bottom: 14px; }
+}
+
+/* Animations */
+@keyframes cardIn{
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes titleIn{
+  0%{ opacity: 0; transform: translateY(-8px) scale(.99); }
+  100%{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+:root{
+  --merah: #d7372c;
+  --hitam: #0c0c0f;
+  --text: #e6eef0;
+  --border: rgba(255,255,255,0.08);
+}
+
+.kontak-dota{
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #000000e7, #1a1a22);
+  color: var(--text);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.kontak-dota h2{
+  font-size: 34px;
+  color: var(--merah);
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(215,55,44,0.5);
+  animation: fadeInDown .8s forwards;
+}
+
+.sub-title{
+  opacity: .8;
+  font-size: 15px;
+  margin-bottom: 35px;
+}
+
+.kontak-container{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+/* Info Box */
+.kontak-info{
+  background: var(--border);
+  padding: 22px 26px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  width: 300px;
+  animation: slideLeft 1s forwards;
+}
+
+.kontak-info p{
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.sosmed{
+  margin-top: 18px;
+}
+
+.icon{
+  font-size: 22px;
+  margin: 0 6px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .3s;
+}
+.icon:hover{
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* Form */
+.kontak-form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 350px;
+  animation: slideRight 1s forwards;
+}
+
+.kontak-form input,
+.kontak-form textarea{
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  outline: none;
+  transition: border .3s, box-shadow .3s;
+}
+
+.kontak-form input:focus,
+.kontak-form textarea:focus{
+  border: 1px solid var(--merah);
+  box-shadow: 0 0 10px rgba(215,55,44,0.6);
+}
+
+.kontak-form textarea{
+  height: 110px;
+  resize: none;
+}
+
+/* Tombol */
+.btn-kirim{
+  background: var(--merah);
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.btn-kirim:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(215,55,44,0.4);
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+  .kontak-container{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Animasi */
+@keyframes fadeInDown{
+  0%{opacity:0; transform: translateY(-20px);}
+  100%{opacity:1; transform: translateY(0);}
+}
+
+@keyframes slideLeft{
+  0%{opacity:0; transform: translateX(-40px);}
+  100%{opacity:1; transform: translateX(0);}
+}
+
+@keyframes slideRight{
+  0%{opacity:0; transform: translateX(40px);}
+  100%{opacity:1; transform: translateX(0);}
+}
+
+/* FOOTER */
+.footer-dota{
+  background: #0c0c10;
+  color: var(--text);
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid var(--merah);
+  margin-top: 60px;
+}
+
+.footer-content h3{
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: var(--merah);
+  text-shadow: 0 0 10px rgba(215,55,44,0.5);
+}
+
+.footer-content p{
+  font-size: 14px;
+  margin-bottom: 18px;
+  opacity: .9;
+}
+
+.footer-sosmed a{
+  text-decoration: none;
+  color: var(--text);
+  margin: 0 10px;
+  font-size: 14px;
+  transition: .3s;
+}
+
+.footer-sosmed a:hover{
+  color: var(--merah);
+  text-shadow: 0 0 10px rgba(215,55,44,0.7);
+}
+
+.footer-content .copyright{
+  margin-top: 15px;
+  font-size: 12px;
+  opacity: .6;
+}
